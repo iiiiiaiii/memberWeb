@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Member {
-    @Id
+public class Member extends BaseEntity {
     @GeneratedValue
-    @Column(name="member_id")
-    private Long id;
+    private Long memberNumber;
 
+    @Id
+    @Column(name="member_id")
     private String loginId;
     private String password;
     private String nickname;
@@ -30,5 +30,9 @@ public class Member {
         this.name = name;
         this.tell = tell;
         this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
